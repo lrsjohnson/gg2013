@@ -13,10 +13,11 @@ for (i, line) in enumerate(fin):
     d = int(parts[1])
     print "v",v,"d",d
 
-    print "sin2t", d*9.8/float(v*v)
-    ans = math.asin(d*9.8/float(v*v))/2*180/(math.pi)
-    print "ans:",ans
-    fout.write("Case #"+str(i+1)+": "+str(ans)+"\n")
+    try:
+        ans = math.asin(d*9.8/float(v*v))/2*180/(math.pi)
+        fout.write("Case #"+str(i+1)+": "+str(ans)+"\n")
+    except:
+        fout.write("Case #"+str(i+1)+": Impossible\n")
 
 fin.close()
 fout.close()
